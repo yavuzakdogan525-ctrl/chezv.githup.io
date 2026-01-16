@@ -372,4 +372,7 @@ img, video{
 .chandelier{
   max-width: min(260px, 70vw);
   height: auto;
+}@media (max-width: 768px){
+  .hero{ padding-top: 110px; } /* header sabitse üst üste binmeyi engeller */
+  .products-grid{ grid-template-columns: 1fr !important; } /* tek sütun */
 }
