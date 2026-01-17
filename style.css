@@ -18,7 +18,7 @@ html,body{
   overflow-x:hidden;
 }
 
-/* ===== HEADER ===== */
+/* ================= HEADER ================= */
 .header{
   position:fixed;
   top:0;
@@ -33,27 +33,35 @@ html,body{
   z-index:1000;
 }
 
-.logo{
-  height:500px;
-  width:350;
-  max-width:300px;
+/* Header logosu: sadece burada kontrol */
+.header .logo{
+  height:60px;        /* ✅ logo büyük */
+  width:auto;
+  display:block;
   object-fit:contain;
+}
+
+.menu{
+  display:flex;
+  align-items:center;
+  gap:30px;
+  flex-wrap:nowrap;
 }
 
 .menu a{
   color:var(--text);
   text-decoration:none;
-  margin-left:30px;
   font-size:16px;
+  white-space:nowrap;
 }
 
 .menu a:hover{ color:var(--gold); }
 
-/* ===== HERO ===== */
+/* ================= HERO ================= */
 .hero{
   position:relative;
   height:100vh;
-  padding-top:90px;
+  padding-top:90px; /* header boşluğu */
   display:flex;
   flex-direction:column;
   align-items:center;
@@ -61,6 +69,7 @@ html,body{
   text-align:center;
   background:radial-gradient(circle,#2d2d2d 0%,#0f0f0f 100%);
   overflow:hidden;
+  width:100%;
 }
 
 .hero h1{
@@ -93,7 +102,7 @@ html,body{
   color:#000;
 }
 
-/* ===== AVİZE ===== */
+/* ================= AVİZE ================= */
 .chandelier{
   position:absolute;
   top:-40px;
@@ -101,10 +110,8 @@ html,body{
   width:340px;
   max-width:70vw;
   height:auto;
-
   transform:translateX(-50%);
   transform-origin:top center;
-
   animation:swing 3.2s ease-in-out infinite;
   z-index:2;
   pointer-events:none;
@@ -116,17 +123,13 @@ html,body{
   100% { transform:translateX(-50%) rotate(-2deg); }
 }
 
-/* ===== MOBİL ===== */
-@media (max-width:768px){
-  .header{ padding:0 16px; height:70px; }
-  .hero{ padding-top:70px; }
-}
-/* ===== SPARKLES ===== */
+/* ================= SPARKLES ================= */
 .sparkles{
   position:fixed;
   inset:0;
   pointer-events:none;
   z-index:2;
+  width:100%;
 }
 
 .sparkles span{
@@ -151,15 +154,8 @@ html,body{
   50%{ opacity:1; transform:scale(1.3); }
   100%{ opacity:0; transform:scale(.4); }
 }
-.menu{
-  display:flex;
-  align-items:center;
-  gap:16px;
-  flex-wrap:wrap;
-  justify-content:flex-end;
-}
-.menu a{ margin-left:0; }
-/* ===== HAKKIMIZDA ===== */
+
+/* ================= HAKKIMIZDA ================= */
 .about-video{
   padding:160px 80px;
   text-align:center;
@@ -170,15 +166,6 @@ html,body{
   font-size:32px;
   letter-spacing:6px;
   margin-bottom:70px;
-}
-
-
-
-
-@keyframes goldGlow{
-  0%{ opacity:.4; }
-  50%{ opacity:1; }
-  100%{ opacity:.4; }
 }
 
 .about-video-wrapper video{
@@ -195,7 +182,7 @@ html,body{
   color:var(--gold);
 }
 
-/* ===== ÇALIŞMALAR ===== */
+/* ================= ÇALIŞMALAR ================= */
 .products-area{
   padding:160px 80px;
   text-align:center;
@@ -229,6 +216,7 @@ html,body{
   height:100%;
   object-fit:cover;
   transition:.7s ease;
+  display:block;
 }
 
 .product-item:hover img{ transform:scale(1.1); }
@@ -244,7 +232,7 @@ html,body{
 
 .product-item:hover::after{ border-color:var(--gold); }
 
-/* ===== LIGHTBOX ===== */
+/* ================= LIGHTBOX ================= */
 .lightbox{
   position:fixed;
   inset:0;
@@ -272,7 +260,7 @@ html,body{
   cursor:pointer;
 }
 
-/* ===== İLETİŞİM ===== */
+/* ================= İLETİŞİM ================= */
 .contact-area{
   padding:140px 80px;
   background:var(--bg-dark);
@@ -322,261 +310,78 @@ html,body{
   color:var(--gold);
   cursor:pointer;
 }
-/* ===== FIX MOBILE SHIFT ===== */
-.logo{
-  height:50px;
-  width:auto;
-  max-width:160px;
-  object-fit:contain;
-}
 
-.menu{
-  display:flex;
-  align-items:center;
-  gap:16px;
-  flex-wrap:wrap;
-  justify-content:flex-end;
-}
-.menu a{ margin-left:0; }
-
-.hero{ width:100%; }
-.sparkles{ width:100%; }
-
-@media (max-width:768px){
-  .header{ padding:0 16px; height:70px; }
-  .hero{ padding-top:70px; }
-  .hero h1{ font-size:40px; }
-}
-/* ===== MOBILE TEXT OVERFLOW FIX ===== */
+/* ================= MOBİL (TEK BLOK) ================= */
 @media (max-width:768px){
 
-  /* uzun başlıklar taşmasın */
-  .about-title,
-  .products-title,
-  .contact-title,
-  .hero h1{
-    max-width: 100%;
-    padding: 0 12px;
-    letter-spacing: 3px;      /* 6px mobilde fazla */
-    word-break: break-word;   /* taşmayı kır */
-    overflow-wrap: anywhere;
-    text-align:center;
-  }
-
-  .products-title{ font-size: 26px; }
-  .contact-title{  font-size: 26px; }
-  .about-title{    font-size: 26px; }
-  .hero h1{        font-size: 40px; }
-}
-@media (max-width:768px){
-  html, body{ overflow-x: clip; }
-}
-/* ====== MOBILE KAYMA FIX (TEK PARCA) ====== */
-@media (max-width: 768px){
-
+  /* kaymayı bitir */
   html, body{
     width:100%;
-    max-width:100%;
     overflow-x:hidden;
   }
 
-  /* section paddingleri mobilde taşırıyordu */
+  /* HEADER: tek satır, taşma yok */
+  .header{
+    height:70px;
+    padding:0 14px;
+  }
+
+  .header .logo{
+    height:64px;          /* ✅ mobilde logo büyük */
+    width:auto;
+    max-width:160px;
+  }
+
+  .menu{
+    gap:14px;
+    max-width:62vw;
+    overflow:hidden;
+  }
+
+  .menu a{
+    font-size:14px;
+  }
+
+  /* HERO */
+  .hero{
+    padding-top:70px;
+  }
+
+  .hero h1{
+    font-size:48px;       /* ✅ mobilde CHEZV büyüdü */
+    letter-spacing:6px;
+    padding:0 12px;
+  }
+
+  .hero p{ padding:0 12px; }
+
+  /* Section paddingleri taşırmasın */
   .about-video,
   .products-area,
   .contact-area{
-    padding: 100px 16px !important;
+    padding:100px 16px;
   }
 
-  /* ÇALIŞMALAR: min 300px yüzünden taşma */
+  /* GRID tek sütun */
   .products-grid{
-    grid-template-columns: 1fr !important;
+    grid-template-columns:1fr;
   }
 
-  /* İLETİŞİM: 320px kartlar yüzünden taşma */
+  /* İletişim kartları */
   .contact-cards{
-    flex-direction: column !important;
-    align-items: center !important;
+    flex-direction:column;
+    align-items:center;
   }
+
   .contact-card{
-    width: 100% !important;
-    max-width: 360px !important;
-    padding: 24px 18px !important;
-    box-sizing: border-box !important;
-  }
-
-  /* görseller güvenli */
-  img{ max-width:100%; height:auto; display:block; }
-}
-@media (max-width:768px){
-
-  /* yatay kaymayı sıfırla */
-  html, body{
-    width:100vw !important;
-    overflow-x: clip !important; /* hidden yerine daha sağlam */
-  }
-
-  /* en sinsi taşma: 100% + padding */
-  .header{
-    left:0 !important;
-    right:0 !important;
-    width:auto !important;
-    padding:0 14px !important;
-  }
-
-  /* her şeyi ekrana zorla sığdır (taşan eleman varsa bile) */
-  *{
-    max-width:100vw !important;
-    box-sizing:border-box !important;
-  }
-
-  /* Çalışmalar grid tek sütun */
-  .products-grid{ grid-template-columns: 1fr !important; }
-
-  /* İletişim kartları tek sütun ve full */
-  .contact-area{ padding:100px 14px !important; }
-  .contact-cards{ flex-direction:column !important; align-items:center !important; }
-  .contact-card{ width:100% !important; max-width:360px !important; }
-
-  img, video{ max-width:100% !important; height:auto !important; display:block; }
-}
-/* ===== MOBIL HEADER + MENU DUZELTME ===== */
-@media (max-width:768px){
-
-  /* header biraz incelsin ve hizalansın */
-  .header{
-    height:70px !important;
-    padding:0 14px !important;
-  }
-
-  /* logo: küçülmesin, net dursun */
-  .logo{
-    height:38px !important;
-    width:auto !important;
-    max-width:140px !important;
-  }
-
-  /* menü yazıları: düzgün font, boşluk, alt satıra düşerse de düzgün */
-  .menu{
-    display:flex !important;
-    align-items:center !important;
-    gap:14px !important;
-    flex-wrap:wrap !important;
-    justify-content:flex-end !important;
-    max-width:65vw !important;
-  }
-
-  .menu a{
-    font-size:14px !important;
-    line-height:1.2 !important;
-    letter-spacing:0.2px !important;
-    margin-left:0 !important;
-    white-space:nowrap !important; /* tek kelime kaymasın */
-  }
-}
-/* ===== MOBIL HEADER KESIN DUZELTME ===== */
-@media (max-width:768px){
-
-  .header{
-    position:fixed !important;
-    top:0;
-    left:0;
     width:100%;
-    height:64px !important;
-    padding:0 12px !important;
-
-    display:flex !important;
-    align-items:center !important;
-    justify-content:space-between !important;
-
-    background:var(--bg-dark);
-    z-index:1000;
+    max-width:360px;
+    padding:24px 18px;
   }
 
-  /* LOGO TAM ORTALI VE DUZ */
-  .logo{
-    height:34px !important;
-    width:auto !important;
-    max-width:130px !important;
+  img, video{
+    max-width:100%;
+    height:auto;
     display:block;
   }
-
-  /* MENU YAZILARI DUZ SIRADA */
-  .menu{
-    display:flex !important;
-    align-items:center !important;
-    gap:10px !important;
-    flex-wrap:nowrap !important;
-  }
-
-  .menu a{
-    font-size:13px !important;
-    line-height:1 !important;
-    padding:0 !important;
-    margin:0 !important;
-    white-space:nowrap !important;
-  }
-
-  /* HERO YUKARI KAYMASIN */
-  .hero{
-    padding-top:64px !important;
-  }
-}
-/* ===== MOBILDE DESKTOP GIBI HEADER ===== */
-@media (max-width:768px){
-
-  /* HEADER AYNI DESKTOP MANTIĞI */
-  .header{
-    position:fixed !important;
-    top:0;
-    left:0;
-    width:100%;
-    height:90px !important;           /* desktop ile ayni */
-    padding:0 40px !important;        /* desktop ile ayni */
-
-    display:flex !important;
-    align-items:center !important;
-    justify-content:space-between !important;
-
-    background:var(--bg-dark);
-    z-index:1000;
-  }
-
-  /* LOGO = DESKTOP GIBI */
-  .logo{
-    height:60px !important;           /* desktop hissi */
-    width:auto !important;
-    max-width:none !important;
-  }
-
-  /* MENU = YAN YANA, TEK SATIR */
-  .menu{
-    display:flex !important;
-    flex-direction:row !important;
-    align-items:center !important;
-    gap:30px !important;              /* desktop araligi */
-    flex-wrap:nowrap !important;
-  }
-
-  .menu a{
-    font-size:16px !important;        /* desktop font */
-    line-height:1 !important;
-    margin:0 !important;
-    white-space:nowrap !important;
-  }
-
-  /* HERO HEADER ALTINA DUSMESIN */
-  .hero{
-    padding-top:90px !important;
-  }
-}
-/* SADECE MOBIL LOGO BUYUTME */
-@media (max-width:768px){
-  .logo{
-    height:60px !important;   /* 50–60 arası ideal, 60 verdim */
-    width:auto !important;
-  }
-}
-h1 {
-  font-size: clamp(44px, 9vw, 82px);
-  letter-spacing: 8px;
 }
