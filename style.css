@@ -492,24 +492,49 @@ html,body{
     flex: 0 0 auto !important;
   }
 
-  /* MENU: tek satır kalsın, sığmazsa yana kaydır */
+ /* ✅ MOBILDE: LOGO BUYUK + MENU TEK SATIR (DESKTOP GIBI) */
+@media (max-width: 768px){
+
+  .header{
+    height: 90px !important;
+    padding: 0 18px !important;      /* 40px telefonda sığmıyor */
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    flex-wrap: nowrap !important;
+  }
+
+  /* ✅ LOGO BUYUT */
+  .header .logo{
+    height: 70px !important;          /* burayı 75 de yapabilirsin */
+    width: auto !important;
+    max-width: none !important;
+    object-fit: contain !important;
+    flex: 0 0 auto !important;
+  }
+
+  /* ✅ MENU TEK SATIR: sığmazsa yana kayar ama alta düşmez */
   .menu{
-    display:flex !important;
-    align-items:center !important;
+    display: flex !important;
+    align-items: center !important;
     gap: 18px !important;
     flex-wrap: nowrap !important;
-    overflow-x: auto !important;          /* ✅ tek satır garanti */
+    white-space: nowrap !important;
+    overflow-x: auto !important;      /* tek satırın garantisi */
     -webkit-overflow-scrolling: touch !important;
-    scrollbar-width: none;                 /* firefox */
+    scrollbar-width: none !important;
     flex: 1 1 auto !important;
     justify-content: flex-end !important;
   }
-  .menu::-webkit-scrollbar{ display:none; } /* safari/chrome */
+  .menu::-webkit-scrollbar{ display:none; }
 
   .menu a{
+    font-size: 15px !important;
     flex: 0 0 auto !important;
+    margin: 0 !important;
     white-space: nowrap !important;
-    font-size: 15px !important;           /* sığdırmak için azıcık düşür */
-    margin:0 !important;
   }
+
+  /* header altına binmesin */
+  .hero{ padding-top: 90px !important; }
 }
