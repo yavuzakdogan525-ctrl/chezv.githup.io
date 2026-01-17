@@ -521,3 +521,51 @@ html,body{
     padding-top:64px !important;
   }
 }
+/* ===== MOBILDE DESKTOP GIBI HEADER ===== */
+@media (max-width:768px){
+
+  /* HEADER AYNI DESKTOP MANTIĞI */
+  .header{
+    position:fixed !important;
+    top:0;
+    left:0;
+    width:100%;
+    height:90px !important;           /* desktop ile ayni */
+    padding:0 40px !important;        /* desktop ile ayni */
+
+    display:flex !important;
+    align-items:center !important;
+    justify-content:space-between !important;
+
+    background:var(--bg-dark);
+    z-index:1000;
+  }
+
+  /* LOGO = DESKTOP GIBI */
+  .logo{
+    height:60px !important;           /* desktop hissi */
+    width:auto !important;
+    max-width:none !important;
+  }
+
+  /* MENU = YAN YANA, TEK SATIR */
+  .menu{
+    display:flex !important;
+    flex-direction:row !important;
+    align-items:center !important;
+    gap:30px !important;              /* desktop araligi */
+    flex-wrap:nowrap !important;
+  }
+
+  .menu a{
+    font-size:16px !important;        /* desktop font */
+    line-height:1 !important;
+    margin:0 !important;
+    white-space:nowrap !important;
+  }
+
+  /* HERO HEADER ALTINA DUSMESIN */
+  .hero{
+    padding-top:90px !important;
+  }
+}
