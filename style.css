@@ -322,3 +322,28 @@ html,body{
   color:var(--gold);
   cursor:pointer;
 }
+/* ===== FIX MOBILE SHIFT ===== */
+.logo{
+  height:50px;
+  width:auto;
+  max-width:160px;
+  object-fit:contain;
+}
+
+.menu{
+  display:flex;
+  align-items:center;
+  gap:16px;
+  flex-wrap:wrap;
+  justify-content:flex-end;
+}
+.menu a{ margin-left:0; }
+
+.hero{ width:100%; }
+.sparkles{ width:100%; }
+
+@media (max-width:768px){
+  .header{ padding:0 16px; height:70px; }
+  .hero{ padding-top:70px; }
+  .hero h1{ font-size:40px; }
+}
