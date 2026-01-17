@@ -620,3 +620,56 @@ html,body{
 
   section.hero{ padding-top: 90px !important; }
 }
+/* ===== FINAL FIX (MOBIL) ===== */
+@media (max-width:768px){
+
+  /* HEADER düzgün dursun */
+  header.header{
+    height: 76px !important;
+    padding: 0 10px !important;
+    display:flex !important;
+    align-items:center !important;
+    justify-content:flex-start !important;
+    gap:10px !important;
+    flex-wrap:nowrap !important;
+    overflow: visible !important;
+  }
+
+  /* LOGO büyüsün */
+  header.header > img.logo{
+    height: 56px !important;
+    width:auto !important;
+    flex:0 0 auto !important;
+    object-fit:contain !important;
+  }
+
+  /* MENU yan yana ve görünür olsun */
+  header.header > nav.menu{
+    flex: 1 1 auto !important;
+    min-width: 0 !important;
+    display:flex !important;
+    align-items:center !important;
+    justify-content: space-between !important;
+    flex-wrap:nowrap !important;
+    white-space:nowrap !important;
+    overflow: hidden !important;
+  }
+
+  header.header > nav.menu a{
+    font-size: 12.5px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    white-space: nowrap !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+
+  /* HERO yazısı (dev E) düzelsin */
+  .hero h1{
+    font-size: 44px !important;
+    letter-spacing: 6px !important;
+    line-height: 1.1 !important;
+  }
+
+  .hero{ padding-top: 76px !important; }
+}
